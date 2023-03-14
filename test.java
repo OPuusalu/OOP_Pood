@@ -1,19 +1,18 @@
 import java.util.HashMap;
 
-public class test {
-
+public class Test {
     public static void main(String[] args) {
 
         HashMap<Integer, Toode> tooted = new HashMap<>();
 
-        Toode toode = new Toode(1.99, "Lusikas");
-        Toode toode1 = new Toode(1.35, "Säästu lusikas");
+        Toode toode = new Toode(2, "Lusikas", 50);
+        Toode toode1 = new Toode(1.35, "kahvel");
 
         tooted.put(0, toode);
         tooted.put(1, toode1);
 
 
-       Ostukorv ostukorv = new Ostukorv(tooted);
+        Ostukorv ostukorv = new Ostukorv(tooted);
 
         System.out.println(ostukorv.ostukorviMaksumus());
 
@@ -22,3 +21,4 @@ public class test {
     }
 
 }
+
