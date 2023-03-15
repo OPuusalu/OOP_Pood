@@ -24,9 +24,11 @@ public class Ostukorv {
     @Override
     public String toString() {
         StringBuilder tooted = new StringBuilder();
+
+        tooted.append("Tooted ostukorvis: \n");
         for (int i = 0; i < ostukorv.size(); i++) {
 
-            tooted.append(i+1).append(".").append(ostukorv.get(i).toString()).append('\n');
+            tooted.append(ostukorv.get(i).toString()).append('\n');
         }
         return tooted.toString();
     }
