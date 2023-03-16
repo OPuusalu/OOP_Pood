@@ -59,7 +59,6 @@ public class Main {
             System.out.println();
         }
     }
-
     static HashMap<Integer, Toode> loebFailist (String failiNimi) throws FileNotFoundException {
         java.io.File fail = new java.io.File(failiNimi);
         HashMap<Integer, Toode> kõikTooted = new HashMap<Integer, Toode>();
@@ -96,20 +95,15 @@ public class Main {
         try {
             tooted.append("Tooted poes: \n");
             for (int i = 1; i <= kõikTooted.size(); i++) {
-
                 if (i == kõikTooted.size())
                     tooted.append(i).append(" -").append(kõikTooted.get(i).toString());
                 else
                     tooted.append(i).append(" -").append(kõikTooted.get(i).toString()).append("\n");
-
-
             }
         }
         catch (Exception e) {
             System.out.println("Tooteid pole");
         }
-
-
         return tooted.toString();
     }
 }
