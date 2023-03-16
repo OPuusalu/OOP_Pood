@@ -13,6 +13,10 @@ public class Main {
         Ostukorv ostukorv = new Ostukorv();
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println();
+        System.out.println("Tere tulemast meie poodi!");
+        System.out.println();
+
         while (true){
 
             System.out.println(prindiTooted(tootedMüügil));
