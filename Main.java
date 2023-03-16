@@ -60,6 +60,7 @@ public class Main {
         }
     }
     static HashMap<Integer, Toode> loebFailist (String failiNimi) throws FileNotFoundException {
+        // Loeme failist andmed, määrame juhuslikult osadele allahindlused, teeme neist klassi Toode isendid ja loome neist HashMapi
         java.io.File fail = new java.io.File(failiNimi);
         HashMap<Integer, Toode> kõikTooted = new HashMap<Integer, Toode>();
         try (Scanner sc = new Scanner(fail, "UTF-8")) {
@@ -81,10 +82,12 @@ public class Main {
         return kõikTooted;
     }
     static boolean kasOnAllahindlus() {
+        // Tootel on 1/3 võimalus, et on parajasti allahindlus
         double arv = Math.random()*100;
         return arv <= 33;
     }
     static double allahindluseProtsent() {
+        // Allahindluse protsendi leiame suvaliselt Random abil
         double protsent = Math.random()*100;
         return protsent;
     }
