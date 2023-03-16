@@ -6,25 +6,21 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException, IOException, InterruptedException {
+
         HashMap<Integer, Toode> tootedMüügil = loebFailist("tooted.txt");
-
         Ostukorv ostukorv = new Ostukorv();
-
         Scanner scanner = new Scanner(System.in);
 
         while (true){
 
             System.out.println(prindiTooted(tootedMüügil));
             System.out.println("0 - Kui olete lõpetanud");
-
             System.out.println("Kirjutage toote number, mida soovite lisada ostukorvi.");
 
             int valik = -1;
-
             boolean onSisestatudNumber = false;
 
             while (!onSisestatudNumber) {
-
                 try {
                     valik = scanner.nextInt();
                     onSisestatudNumber = true;
@@ -42,31 +38,26 @@ public class Main {
                 System.out.println();
                 System.out.println(ostukorv);
                 System.out.printf("Teie ostukorvi maksumus on %s eurot.%n", ostukorv.ostukorviMaksumus());
+
                 double säästetud = ostukorv.kokkuSäästetud();
 
                 if (säästetud > 0)
                     System.out.printf("Olete säästnud oma ostudega %s eurot.", säästetud);
-
                 break;
             }
 
             if (tootedMüügil.containsKey(valik)){
                 Toode toode = tootedMüügil.get(valik);
-
                 System.out.printf("Ostukorvi on lisatud toode%s%n", toode);
                 ostukorv.lisaToode(toode);
             }
             else {
                 System.out.println("Sellist toodet pole!");
             }
-
             System.out.println();
             System.out.println("-------------------");
             System.out.println();
-
-
         }
-
     }
 
     static HashMap<Integer, Toode> loebFailist (String failiNimi) throws FileNotFoundException {
