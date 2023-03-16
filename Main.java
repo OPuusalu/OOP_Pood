@@ -73,7 +73,7 @@ public class Main {
         try (Scanner sc = new Scanner(fail, "UTF-8")) {
             int järjekorraNr = 1;
             while (sc.hasNextLine()) {
-                String[] rida = sc.nextLine().split("-");
+                String[] rida = sc.nextLine().split("_");
                 if (kasOnAllahindlus()) {
                     Toode toode = new Toode(Double.parseDouble(rida[0]), rida[1], allahindluseProtsent());
                     kõikTooted.put(järjekorraNr, toode);
