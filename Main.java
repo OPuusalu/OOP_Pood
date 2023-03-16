@@ -2,6 +2,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLOutput;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Main {
@@ -30,8 +32,6 @@ public class Main {
                 }
             }
 
-            System.out.println();
-
             if (valik == 0) {
                 System.out.println();
                 System.out.println("-------------------");
@@ -42,9 +42,16 @@ public class Main {
                 double säästetud = ostukorv.kokkuSäästetud();
 
                 if (säästetud > 0)
-                    System.out.printf("Olete säästnud oma ostudega %s eurot.", säästetud);
+                    System.out.printf("Olete säästnud oma ostudega %s eurot.%n", säästetud);
+                LocalDateTime currentTime = LocalDateTime.now();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                System.out.println("Tehingu aeg: " + formatter.format(currentTime));
                 break;
             }
+
+            System.out.println();
+            System.out.println("-------------------");
+            System.out.println();
 
             if (tootedMüügil.containsKey(valik)){
                 Toode toode = tootedMüügil.get(valik);
@@ -76,7 +83,6 @@ public class Main {
                     järjekorraNr++;
                 }
             }
-            sc.close();
         }
         return kõikTooted;
     }

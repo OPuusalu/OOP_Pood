@@ -19,9 +19,7 @@ public class Ostukorv {
         for (int i = 0; i < ostukorv.size(); i++) {
             summa += ostukorv.get(i).getHind();
         }
-
         return summa;
-
     }
 
     public double kokkuSäästetud(){
@@ -31,9 +29,7 @@ public class Ostukorv {
         for (int i = 0; i < ostukorv.size(); i++) {
             säästetud += ostukorv.get(i).getSäästetudSumma();
         }
-
         return säästetud;
-
     }
 
     @Override
@@ -43,7 +39,7 @@ public class Ostukorv {
         tooted.append("Tooted ostukorvis: \n");
         for (int i = 0; i < ostukorv.size(); i++) {
 
-            tooted.append(ostukorv.get(i).toString()).append('\n');
+            tooted.append(" ").append(ostukorv.get(i).toString()).append('\n');
         }
         return tooted.toString();
     }
