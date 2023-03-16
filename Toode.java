@@ -29,6 +29,14 @@ public class Toode{
         }
     }
 
+    public double getSäästetudSumma(){
+        if (allahindlus == 0) {
+            return 0;
+        } else {
+            return hind - hindAllahindlusega(hind, allahindlus);
+        }
+    }
+
     // Allahindlusega toote uue hinna arvutamine
     public double hindAllahindlusega(double hind, double allahindlus) {
         double uusHind = hind-allahindlus*hind/100;

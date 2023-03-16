@@ -1,12 +1,15 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.StringJoiner;
+import java.util.function.ToDoubleBiFunction;
 
 public class Ostukorv {
 
-    HashMap<Integer, Toode> ostukorv;
+    List<Toode> ostukorv = new ArrayList<>();
 
-    public Ostukorv(HashMap<Integer, Toode> ostukorv) {
-        this.ostukorv = ostukorv;
+    public void lisaToode(Toode toode){
+        ostukorv.add(toode);
     }
 
     public double ostukorviMaksumus(){
@@ -18,6 +21,18 @@ public class Ostukorv {
         }
 
         return summa;
+
+    }
+
+    public double kokkuSäästetud(){
+
+        double säästetud = 0;
+
+        for (int i = 0; i < ostukorv.size(); i++) {
+            säästetud += ostukorv.get(i).getSäästetudSumma();
+        }
+
+        return säästetud;
 
     }
 

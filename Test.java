@@ -12,7 +12,7 @@ public class Test {
         tooted.put(1, toode1);
 
 
-        Ostukorv ostukorv = new Ostukorv(tooted);
+        Ostukorv ostukorv = new Ostukorv();
 
         System.out.println(ostukorv.ostukorviMaksumus());
 
