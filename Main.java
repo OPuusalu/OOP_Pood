@@ -1,6 +1,7 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLOutput;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -12,6 +13,7 @@ public class Main {
         HashMap<Integer, Toode> tootedMüügil = loebFailist("tooted.txt");
         Ostukorv ostukorv = new Ostukorv();
         Scanner scanner = new Scanner(System.in);
+        DecimalFormat df = new DecimalFormat("#.##");
 
         System.out.println();
         System.out.println("Tere tulemast meie poodi!");
@@ -41,12 +43,13 @@ public class Main {
                 System.out.println("-------------------");
                 System.out.println();
                 System.out.println(ostukorv);
-                System.out.printf("Teie ostukorvi maksumus on %s eurot.%n", ostukorv.ostukorviMaksumus());
+                System.out.printf("Teie ostukorvi maksumus on %s eurot.%n", df.format(ostukorv.ostukorviMaksumus()));
 
                 double säästetud = ostukorv.kokkuSäästetud();
 
                 if (säästetud > 0)
-                    System.out.printf("Olete säästnud oma ostudega %s eurot.%n", säästetud);
+                    System.out.printf("Olete säästnud oma ostudega %s eurot.%n", df.format(säästetud));
+
                 LocalDateTime currentTime = LocalDateTime.now();
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
                 System.out.println("Tehingu aeg: " + formatter.format(currentTime));
